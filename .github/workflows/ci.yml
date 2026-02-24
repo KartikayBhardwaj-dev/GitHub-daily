@@ -1,0 +1,16 @@
+name: CI  # This is the workflow name shown in Actions tab
+
+on:
+  push:
+    branches: [ main ]  # Triggers on pushes to main branch
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:  # Lets you manually trigger it from the Actions tab
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Free virtual machine GitHub provides
+    steps:
+      - uses: actions/checkout@v4  # Downloads your code
+      - name: Say hello
+        run: echo "Workflow is working!"  # Simple step that always succeeds
